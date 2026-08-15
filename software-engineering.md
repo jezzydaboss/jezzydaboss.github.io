@@ -3,7 +3,7 @@
 [Home](index.md) | [Software Engineering](software-engineering.md) | [Algorithms](algorithms.md) | [Databases](databases.md) | [Code Review](code-review.md)
 
 ---
-[Download full narrative (Word doc)](narratives/Milestone_Two_Narrative.docx)
+[Download full narrative (Word doc)](Narratives/Milestone_Two_Narrative.docx)
 ## Artifact Description
 
 The artifact is a 3D scene rendering application built in C++ using the OpenGL graphics API and GLSL shading language, originally created for CS 330, Computational Graphics and Visualization. It renders a desk scene — a laptop, monitor, coffee mug, pens, and a stack of notebooks — using a main application loop (`MainCode.cpp`) and two manager classes: `SceneManager`, which loads textures and materials and draws the scene content, and `ViewManager`, which is responsible for the camera, mouse/keyboard input, and the projection from 3D scene space to the 2D display.
