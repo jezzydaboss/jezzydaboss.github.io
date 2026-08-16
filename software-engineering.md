@@ -11,7 +11,7 @@
 
 The artifact is a 3D scene rendering application built in C++ using the OpenGL graphics API and GLSL shading language, originally created for CS 330, Computational Graphics and Visualization. It renders a desk scene - a laptop, monitor, coffee mug, pens, and a stack of notebooks - using a main application loop (MainCode.cpp) and two manager classes: SceneManager, which loads textures and materials and draws the scene content, and ViewManager, which is responsible for the camera, mouse/keyboard input, and the projection from 3D scene space to the 2D display.
 
-**Browse the code:** [original](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/original/software-engineering) · [enhanced](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/software-engineering)
+**Browse the code:** [original](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/original/3DOpenGLScene) · [enhanced](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/OpenGL_Scene_Enhanced_v3)
 
 ## Justification for Inclusion
 

@@ -11,7 +11,7 @@
 
 The artifact is the local Room/SQLite database layer of an Android inventory management application, originally built for CS 360, Mobile Architecture and Programming. It handles user login and registration and manages inventory items - name, quantity, location, and an optional image - with a low-stock SMS alert feature. The database layer includes an AppDatabase singleton, DAOs for users and inventory items, and Repository classes wrapping database calls onto background threads.
 
-**Browse the code:** [original](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/original/databases) · [enhanced](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/databases)
+**Browse the code:** [original zip](https://github.com/jezzydaboss/jezzydaboss.github.io/blob/main/artifacts/original/CS360_Reynolds_Jimmy%202.zip) · [enhanced](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/cs360_reynolds_jimmy)
 
 ## Justification for Inclusion
 
