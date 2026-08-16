@@ -12,12 +12,10 @@ import javax.crypto.spec.PBEKeySpec;
  *
  *  ENHANCEMENT (Milestone Four, CS 499): this artifact was named
  *  the "encrypted database wrapper" but stored and compared
- *  passwords as plaintext strings directly in a SQL WHERE clause
- *  (see the original UserDao.login() and Room's generated SQL:
- *  "SELECT * FROM users WHERE username = ? AND password = ?").
+ *  passwords as plaintext strings directly in a SQL WHERE clause.
  *  This class replaces that with PBKDF2 (Password-Based Key
  *  Derivation Function 2), a standard, salted, iterated password
- *  hashing algorithm - not a fast general-purpose hash like
+ *  hashing algorithm not a fast general-purpose hash like
  *  SHA-256 alone, which is unsuitable for passwords because it's
  *  too cheap to brute-force at scale.
  *
@@ -27,25 +25,18 @@ import javax.crypto.spec.PBEKeySpec;
  *     via javax.crypto.SecretKeyFactory since Android API level 10,
  *     while PBKDF2WithHmacSHA256 requires API 26+. Since this app's
  *     minSdkVersion was not confirmed to be 26+, SHA1-backed PBKDF2
- *     (which is still considered acceptable for password hashing -
- *     the security here comes from the PBKDF2 iteration count and
- *     salt, not from SHA-1's collision resistance, which is not
- *     what's being relied on) is the safer compatibility choice.
+ *     is the safer compatibility choice.
  *     If minSdkVersion is confirmed to be 26 or higher, swapping
  *     the algorithm string to "PBKDF2WithHmacSHA256" is a one-line
  *     change.
  *   - A new random 16-byte salt is generated PER USER at registration
- *     time via SecureRandom (a cryptographically secure random source,
- *     not java.util.Random) and stored alongside the hash. This means
+ *     time via SecureRandom and stored alongside the hash. This means
  *     two users with the same password get completely different
  *     stored hashes, which defeats precomputed rainbow-table attacks.
  *   - 65536 iterations is a commonly recommended minimum for PBKDF2
  *     as of recent OWASP guidance for HMAC-SHA1-backed PBKDF2; this
  *     can be increased over time as hardware gets faster, since the
- *     iteration count is stored in the class, not derived per-user
- *     (a production system would ideally store the iteration count
- *     used per-hash to allow safely increasing it over time without
- *     invalidating existing users' stored hashes).
+ *     iteration count is stored in the class, not derived per-user.
  *
  *  This class has NO Android dependencies (only javax.crypto and
  *  java.security, both part of the standard JDK) - it was written
@@ -104,8 +95,7 @@ public class PasswordHasher {
 
     /**
      * ENHANCEMENT: a naive String.equals() comparison of two hashes can
-     * leak timing information (it returns as soon as it finds the first
-     * mismatched character), which in theory helps an attacker guess a
+     * leak timing information, which in theory helps an attacker guess a
      * hash byte-by-byte. Comparing every character regardless of an
      * early mismatch keeps the comparison time constant, closing that
      * side channel. This matters less for a locally-run mobile app than
