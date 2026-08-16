@@ -1,15 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 // MetricsServer.h
 // ============
-// a minimal embedded HTTP server that exposes live frame metrics (frame
-// time, FPS, navigation vector, collision events) to any HTTP client -
-// e.g. a browser-based dashboard - over the network.
+// a minimal embedded HTTP server that exposes live frame metrics to any HTTP client
+// e.g. a browser-based dashboard over the network.
 //
 //  ENHANCEMENT (Milestone Two, CS 499): this is what actually makes the
 //  "Full-Stack App Integration" claim in the Module One enhancement plan
 //  true rather than aspirational. The previous version of this
 //  enhancement (ExportFrameMetrics()) only wrote metrics to a local JSON
-//  file on disk - useful, but not "an accessible web platform" as
+//  file on disk useful, but not "an accessible web platform" as
 //  claimed, since nothing outside the local filesystem could reach it.
 //  This class opens a real TCP listening socket and answers HTTP GET
 //  requests with a JSON payload, which is what "designing programmatic
@@ -26,11 +25,11 @@
 //     served from a different origin (e.g. opened as a local file, or
 //     served from a different port) can fetch() it directly from
 //     JavaScript without being blocked by CORS.
-//   - Implemented with POSIX sockets (sys/socket.h), which matches this
+//   - Implemented with POSIX sockets, which matches this
 //     project's actual current toolchain (tasks.json targets clang++ on
 //     macOS via Homebrew) and Linux. It intentionally does NOT attempt a
 //     Winsock implementation for MSVC/Windows, since the project no
-//     longer ships a Visual Studio project file - see the note in
+//     longer ships a Visual Studio project file see the note in
 //     MetricsServer.cpp if a Windows port is needed later.
 ///////////////////////////////////////////////////////////////////////////////
 
