@@ -8,7 +8,7 @@
 
 The artifact is the local Room/SQLite database layer of an Android inventory management application, originally built for CS 360, Mobile Architecture and Programming. It handles user login/registration and manages inventory items — name, quantity, location, and an optional image — with a low-stock SMS alert feature.
 
-**Download the full code:** original and enhanced source files are in this repository under `/artifacts/databases/`.
+**Browse the code:** [original](artifacts/databases/original/) · [enhanced](artifacts/databases/enhanced/)
 
 ## Justification for Inclusion
 

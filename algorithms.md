@@ -8,7 +8,7 @@
 
 The artifact is a Java console application for managing rescue dogs and monkeys, originally built for IT 145, Foundation in Application Development. It's a menu-driven program supporting animal intake, reservation by service country, and filtered listing, built around a `RescueAnimal` parent class with `Dog` and `Monkey` subclasses.
 
-**Download the full code:** original and enhanced source files are in this repository under `/artifacts/algorithms/`.
+**Browse the code:** [original](artifacts/algorithms/original/) · [enhanced](artifacts/algorithms/enhanced/)
 
 ## Justification for Inclusion
 
