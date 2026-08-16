@@ -21,17 +21,16 @@ import java.util.concurrent.Executors;
  *     instead of plain Room/SQLite. This is the core fix for this
  *     artifact: it was named the "encrypted database wrapper" but
  *     the original Room.databaseBuilder(...) call configured no
- *     encryption at all - the .db file on disk was plain, readable
+ *     encryption at all the .db file on disk was plain, readable
  *     SQLite. With SupportFactory wired in, the database file is
  *     encrypted at rest using a key from DatabaseKeyProvider, which
  *     is itself generated randomly and stored via the Android
- *     Keystore rather than hardcoded (see DatabaseKeyProvider.java
- *     for why that distinction matters).
+ *     Keystore rather than hardcoded.
  *   - getInstance() is now the ONLY way to construct this database
  *     anywhere in the app. Previously, LoginActivity bypassed this
  *     singleton entirely and called Room.databaseBuilder(...)
  *     directly with a different literal name ("warehouse-db" with a
- *     hyphen, vs. "warehouse_db" with an underscore here) - meaning
+ *     hyphen, vs. "warehouse_db" with an underscore here) meaning
  *     the app was silently creating and using TWO separate database
  *     files depending on which code path ran. LoginActivity.java has
  *     been updated to call AppDatabase.getInstance() like every
@@ -63,7 +62,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     Context appContext = context.getApplicationContext();
 
-                    // ENHANCEMENT: load libsqlcipher before opening the database -
+                    // ENHANCEMENT: load libsqlcipher before opening the database
                     // required once by SQLCipher for Android
                     SQLiteDatabase.loadLibs(appContext);
 
@@ -74,9 +73,8 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(appContext, AppDatabase.class, "warehouse_db")
                             .openHelperFactory(factory)
                             // ENHANCEMENT: version bumped from 1 to 2 above because
-                            // UserEntity's schema changed (added "salt" column, added
-                            // a unique index on "username"). Room requires either a
-                            // Migration or, during development, a fallback strategy -
+                            // UserEntity's schema changed. Room requires either a
+                            // Migration or, during development, a fallback strategy
                             // fallbackToDestructiveMigration() is appropriate here
                             // since this is a student project with no production
                             // user data to preserve across the schema change. A real
@@ -86,7 +84,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             .build();
 
                     // the raw passphrase char[] is no longer needed once the
-                    // database is open - clearing it limits how long the key
+                    // database is open clearing it limits how long the key
                     // material sits in memory
                     java.util.Arrays.fill(passphrase, '\0');
                 }
