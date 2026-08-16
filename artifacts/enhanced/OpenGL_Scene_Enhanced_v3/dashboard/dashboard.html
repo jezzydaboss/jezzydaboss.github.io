@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+  dashboard.html
+  ============
+  ENHANCEMENT (Milestone Two, CS 499): this is the "accessible web
+  platform" side of the Full-Stack App Integration claim in the Module
+  One enhancement plan. It's a plain static HTML/JS file - no build
+  step, no framework - that polls the running C++ application's
+  MetricsServer endpoint (http://localhost:8080/metrics) and displays
+  live frame timing and camera navigation data.
+
+  How to use:
+    1. Run the enhanced OpenGL application (it starts the metrics
+       server automatically on port 8080).
+    2. Open this file directly in a browser (double-click it, or
+       File > Open). No web server is required to host this file -
+       it's the fetch() target (the C++ app) that needs to be running.
+    3. The page polls the endpoint every 500ms and updates the display.
+
+  If the app isn't running, the page will show a connection error
+  instead of stale or fabricated data.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scene Metrics Dashboard</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #14161a;
+    color: #e8e8e8;
+    margin: 0;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #9fd3ff;
+    margin-bottom: 24px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 760px;
+  }
+  .card {
+    background: #1e2126;
+    border: 1px solid #2a2e35;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #8a8f98;
+    margin-bottom: 6px;
+  }
+  .value {
+    font-size: 24px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .status {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #8a8f98;
+  }
+  .status.error { color: #ff6b6b; }
+  .status.ok { color: #6bdc8f; }
+</style>
+</head>
+<body>
+  <h1>Scene Metrics — Live</h1>
+  <div class="grid">
+    <div class="card">
+      <div class="label">Frame Time</div>
+      <div class="value" id="frameTime">—</div>
+    </div>
+    <div class="card">
+      <div class="label">FPS</div>
+      <div class="value" id="fps">—</div>
+    </div>
+    <div class="card">
+      <div class="label">Camera Position</div>
+      <div class="value" id="position" style="font-size:16px;">—</div>
+    </div>
+    <div class="card">
+      <div class="label">Camera Front (Navigation Vector)</div>
+      <div class="value" id="front" style="font-size:16px;">—</div>
+    </div>
+    <div class="card">
+      <div class="label">Projection Mode</div>
+      <div class="value" id="projectionMode" style="font-size:16px;">—</div>
+    </div>
+  </div>
+  <div class="status" id="status">Connecting to http://localhost:8080/metrics ...</div>
+
+<script>
+  const ENDPOINT = "http://localhost:8080/metrics";
+  const statusEl = document.getElementById("status");
+
+  function fmtVec(v) {
+    return "[" + v.map(n => n.toFixed(2)).join(", ") + "]";
+  }
+
+  async function poll() {
+    try {
+      const res = await fetch(ENDPOINT, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+
+      document.getElementById("frameTime").textContent = data.frameTimeMs.toFixed(2) + " ms";
+      document.getElementById("fps").textContent = data.fps.toFixed(1);
+      document.getElementById("position").textContent = fmtVec(data.navigationVector.position);
+      document.getElementById("front").textContent = fmtVec(data.navigationVector.front);
+      document.getElementById("projectionMode").textContent = data.projectionMode;
+
+      statusEl.textContent = "Connected — last updated " + new Date().toLocaleTimeString();
+      statusEl.className = "status ok";
+    } catch (err) {
+      statusEl.textContent = "Not connected: " + err.message + " (is the app running?)";
+      statusEl.className = "status error";
+    }
+  }
+
+  poll();
+  setInterval(poll, 500);
+</script>
+</body>
+</html>
