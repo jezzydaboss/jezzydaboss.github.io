@@ -8,7 +8,7 @@
 
 The artifact is a Java console application for managing rescue dogs and monkeys, originally built for IT 145, Foundation in Application Development. It's a menu-driven program supporting animal intake, reservation by service country, and filtered listing, built around a RescueAnimal parent class with Dog and Monkey subclasses. I selected this as a replacement for my original CS 260 artifact because it gave me a much stronger, more concrete algorithms and data structures story: real linear-search collection usage, a real opportunity to move to a hash-based structure, and - as it turned out - a set of genuine functional defects worth fixing.
 
-**Browse the code:** [original](github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/algorithms/original/) · [enhanced](github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/algorithms/enhanced/)
+**Browse the code:** [original](github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/original/algorithms) · [enhanced](github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/algorithms)
 
 ## Justification for Inclusion
 
