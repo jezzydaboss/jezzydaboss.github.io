@@ -17,9 +17,7 @@ import java.util.Scanner;
  *     intakeNewMonkey() scanned the entire list with
  *     equalsIgnoreCase() on every intake - O(n) per check - and is
  *     now O(1) average case.
- *   - Added MetricsCollector (real timing instrumentation around
- *     every NameIndex lookup/insert) and MetricsServer (a live HTTP
- *     endpoint exposing those metrics as JSON) - see those files for
+ *   - Added MetricsCollector and MetricsServer see those files for
  *     details. This backs the "Data Analysis & Metrics Harvesting"
  *     and "Cross-Tier Application Connectivity" claims.
  *   - Fixed a real Scanner bug in intakeNewDog(): nextBoolean() does
@@ -28,7 +26,7 @@ import java.util.Scanner;
  *     read an empty leftover string instead of the actual input.
  *   - Fixed reserveAnimal(): it compared an animal's country field
  *     against the literal string "in service", which is a training
- *     status, not a country - so the condition could essentially
+ *     status, not a country so the condition could essentially
  *     never be satisfied correctly. It now checks getTrainingStatus().
  *   - Fixed printAnimals(): it previously ignored its own "option"
  *     parameter entirely and always printed the same combined,
@@ -71,13 +69,13 @@ public class Driver {
             option = input.next().charAt(0);
             // ENHANCEMENT: input.next() reads a token but leaves the
             // trailing newline in the buffer. Discovered through actually
-            // running the program (not just reading it): that leftover
+            // running the program:that leftover
             // newline was being silently consumed by the FIRST nextLine()
             // call inside whichever handler ran next (e.g. reading the
             // animal's name), returning an empty string instead of real
             // input and shifting every subsequent field read by one. The
             // original code called input.nextLine() AFTER each handler,
-            // which is too late to fix this - it has to happen here,
+            // which is too late to fix this it has to happen here,
             // before the handler runs.
             input.nextLine();
 
