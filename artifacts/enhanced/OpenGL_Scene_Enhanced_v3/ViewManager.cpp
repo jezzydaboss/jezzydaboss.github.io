@@ -59,7 +59,7 @@ ViewManager::ViewManager(
 	// ENHANCEMENT: start the live metrics HTTP endpoint. Port 8080 is
 	// used as a simple, commonly-open default; if it's already in use
 	// on this machine, Start() logs an error and returns false, but the
-	// rest of the application continues running normally either way -
+	// rest of the application continues running normally either way
 	// the endpoint is an enhancement, not a hard dependency for the
 	// scene to render.
 	m_pMetricsServer = std::make_unique<MetricsServer>(8080);
@@ -75,7 +75,7 @@ ViewManager::~ViewManager()
 {
 	// ENHANCEMENT: explicitly stop the server (joins its background
 	// thread) before the unique_ptr destroys it, and before m_pCamera
-	// and other members go away - Stop() is also safe to call
+	// and other members go away Stop() is also safe to call
 	// implicitly via ~MetricsServer() alone, but being explicit here
 	// keeps the shutdown order obvious.
 	if (m_pMetricsServer)
@@ -84,7 +84,7 @@ ViewManager::~ViewManager()
 	}
 
 	// m_pCamera and m_pMetricsServer are std::unique_ptr and release
-	// themselves automatically here - no manual delete/NULL-check required.
+	// themselves automatically here no manual delete/NULL-check required.
 	m_pShaderManager = NULL;
 	m_pWindow = NULL;
 }
@@ -250,7 +250,7 @@ void ViewManager::ProcessKeyboardEvents()
  *  ENHANCEMENT: these are the single authoritative source for
  *  the scene's view/projection matrices. SceneManager::RenderScene()
  *  previously recomputed its own copies of both every frame from a
- *  second, separate set of camera globals - this eliminates that
+ *  second, separate set of camera globals this eliminates that
  *  duplication entirely.
  ***********************************************************/
 glm::mat4 ViewManager::GetViewMatrix() const
@@ -287,10 +287,9 @@ glm::mat4 ViewManager::GetProjectionMatrix() const
  *  ENHANCEMENT: builds the current frame metrics as a JSON
  *  document and pushes it to the MetricsServer so the next
  *  HTTP request to /metrics serves fresh data. Includes frame
- *  timing and the camera's current position/front vector (the
- *  "navigation vector" data referenced in the enhancement
- *  plan). Collision-event tracking is intentionally NOT
- *  included here - there is no collision detection anywhere
+ *  timing and the camera's current position/front vector.
+ *  Collision-event tracking is intentionally NOT
+ *  included here there is no collision detection anywhere
  *  in this codebase yet, so reporting collision data would be
  *  fabricating a field with no real source; that remains
  *  explicitly unbuilt/future work rather than being
