@@ -32,17 +32,17 @@
  *  implementation of camera movement, mouse look, scroll-based
  *  speed, and projection-mode switching had been written from
  *  scratch as free functions and global variables at the top
- *  of SceneManager.cpp - despite camera.h already providing a
+ *  of SceneManager.cpp, despite camera.h already providing a
  *  complete, working Camera class with ProcessKeyboard(),
  *  ProcessMouseMovement(), and GetViewMatrix() that was never
  *  actually used. On top of the duplication, MainCode.cpp
- *  registered GLFW's cursor-position callback twice - once to
+ *  registered GLFW's cursor-position callback twice once to
  *  ViewManager's (no-op) callback, then again to the
  *  SceneManager-based one, silently overwriting the first.
  *
  *  This enhancement consolidates ALL camera and input logic
- *  back into ViewManager - its originally intended single
- *  responsibility - built on top of the existing Camera class
+ *  back into ViewManager its originally intended single
+ *  responsibility built on top of the existing Camera class
  *  instead of hand-rolled globals. SceneManager no longer
  *  computes or uploads its own view/projection matrices at
  *  all; it asks ViewManager for them once per frame. Camera
@@ -78,7 +78,7 @@ public:
 
 	// ENHANCEMENT: basic per-frame performance data, now backed by an
 	// actual network-reachable HTTP endpoint (see MetricsServer) rather
-	// than only a local JSON file - a browser dashboard can fetch()
+	// than only a local JSON file a browser dashboard can fetch()
 	// http://localhost:8080/metrics live. This is what makes the
 	// "Full-Stack App Integration" claim in the Module One enhancement
 	// plan an accurate description of the code rather than a future
