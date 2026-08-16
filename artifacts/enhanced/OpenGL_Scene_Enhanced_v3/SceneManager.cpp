@@ -12,7 +12,7 @@
 //      functions (mouse_callback, scroll_callback, processInput,
 //      processProjectionKeys, and their backing cameraPos/cameraFront/
 //      yaw/pitch/deltaTime/gProjMode globals). This logic already existed,
-//      correctly, in ViewManager - it had just never been wired up there.
+//      correctly, in ViewManager it had just never been wired up there.
 //    - RenderScene() no longer computes or uploads its own view/projection
 //      matrices; it now asks the injected ViewManager for them once.
 //    - FindMaterial() now returns its real search result instead of a
