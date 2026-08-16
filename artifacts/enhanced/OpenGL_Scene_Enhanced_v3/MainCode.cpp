@@ -13,7 +13,7 @@
 //      competing SceneManager-based implementation.
 //    - Removed the duplicate call to g_SceneManager->PrepareScene().
 //    - Removed SceneManager::SetWindow() / the processInput() call, since
-//      camera/input handling now lives entirely in ViewManager - see
+//      camera/input handling now lives entirely in ViewManager see
 //      ViewManager.h/.cpp and SceneManager.h/.cpp for details.
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
 		"Utilities/shaders/fragmentShader.glsl");
 	g_ShaderManager->use();
 
-	// try to create a new scene manager object and prepare the 3D scene -
+	// try to create a new scene manager object and prepare the 3D scene
 	// SceneManager is given a pointer to the ViewManager so it can pull
 	// the current view/projection matrices each frame instead of
 	// maintaining its own separate camera state
