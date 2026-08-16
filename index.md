@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="assets/css/style.css">
+<style>:root { --accent: #3d5a80; }</style>
+
 # Jimmy Reynolds — Computer Science ePortfolio
 
 [Home](index.md) | [Software Engineering](software-engineering.md) | [Algorithms](algorithms.md) | [Databases](databases.md) | [Code Review](code-review.md)

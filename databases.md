@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="assets/css/style.css">
+<style>:root { --accent: #6a4c93; }</style>
+
 # Databases — Android Inventory Application
 
 [Home](index.md) | [Software Engineering](software-engineering.md) | [Algorithms](algorithms.md) | [Databases](databases.md) | [Code Review](code-review.md)
@@ -8,7 +11,7 @@
 
 The artifact is the local Room/SQLite database layer of an Android inventory management application, originally built for CS 360, Mobile Architecture and Programming. It handles user login and registration and manages inventory items - name, quantity, location, and an optional image - with a low-stock SMS alert feature. The database layer includes an AppDatabase singleton, DAOs for users and inventory items, and Repository classes wrapping database calls onto background threads.
 
-**Browse the code:** [original](artifacts/databases/original/) · [enhanced](artifacts/databases/enhanced/)
+**Browse the code:** [original](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/original/databases) · [enhanced](https://github.com/jezzydaboss/jezzydaboss.github.io/tree/main/artifacts/enhanced/databases)
 
 ## Justification for Inclusion
 
