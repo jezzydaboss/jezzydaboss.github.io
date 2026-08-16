@@ -9,7 +9,7 @@
 
 ## Professional Self-Assessment
 
-Completing this program, and building the ePortfolio that follows this assessment, has clarified something I wasn't fully certain about when I started: what kind of computer science work I actually want to do. I came into the program aiming at data analysis. Through the coursework, and especially through the enhancement work in this capstone, I found I'm drawn more to database administration — designing schemas, managing data security, and keeping systems reliable with software development as a strong second direction if that path doesn't work out the way I expect. That shift didn't happen because of a single course; it happened because I kept being handed real code with real problems to find and fix, and I noticed which parts of that work I actually wanted to keep doing after the assignment was over.
+Completing this program, and building the ePortfolio that follows this assessment, has clarified something I wasn't fully certain about when I started: what kind of computer science work I actually want to do. I came into the program aiming at data analysis. Through the coursework, and especially through the enhancement work in this capstone, I found I'm drawn more to database administration, designing schemas, managing data security, and keeping systems reliable with software development as a strong second direction if that path doesn't work out the way I expect. That shift didn't happen because of a single course; it happened because I kept being handed real code with real problems to find and fix, and I noticed which parts of that work I actually wanted to keep doing after the assignment was over.
 
 ### Collaborating in a Team Environment and Communicating with Stakeholders
 
