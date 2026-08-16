@@ -1,3 +1,4 @@
+![Jimmy Reynolds — Computer Science ePortfolio](assets/banner.png)
 # Computer Science ePortfolio
 
 **[Visit the live site](https://jezzydaboss.github.io)**
