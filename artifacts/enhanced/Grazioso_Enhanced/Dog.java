@@ -4,7 +4,7 @@
  *  ENHANCEMENT NOTE (Milestone Three, CS 499): the constructor
  *  called setAcquisitionLocation(), which no longer exists now
  *  that RescueAnimal's accessor was renamed to
- *  setAcquisitionCountry() for naming consistency - updated to
+ *  setAcquisitionCountry() for naming consistency updated to
  *  match.
  ***********************************************************/
 public class Dog extends RescueAnimal {
