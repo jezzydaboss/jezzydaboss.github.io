@@ -13,15 +13,13 @@ import java.util.List;
  *  but it's a black box - nothing about hash distribution or
  *  bucket collisions is observable or "mitigated" by simply
  *  calling into the standard library. This class exposes exactly
- *  those numbers (collision count, load factor, bucket count) and
- *  actively manages them by rehashing into a larger table once the
- *  load factor crosses a threshold - the actual trade-off the
+ *  those numbers and actively manages them by rehashing into a larger table once the
+ *  load factor crosses a threshold the actual trade-off the
  *  enhancement plan describes.
  *
  *  This is intentionally NOT a drop-in replacement for
- *  java.util.HashMap's full API - it implements exactly what
- *  Driver.java needs (put, get, containsKey, values, and the
- *  metrics accessors below) to keep the scope honest and
+ *  java.util.HashMap's full API it implements exactly what
+ *  Driver.java needs to keep the scope honest and
  *  reviewable.
  ***********************************************************/
 public class NameIndex<V> {
@@ -128,10 +126,9 @@ public class NameIndex<V> {
      *  existing entry into the new, larger table. This is the
      *  concrete mechanism that "mitigates" the performance
      *  trade-off referenced in the enhancement plan: as more
-     *  entries are added, bucket occupancy (and therefore
-     *  collision likelihood) climbs, so the table proactively
-     *  grows to keep average bucket occupancy - and therefore
-     *  average lookup cost - roughly constant, which is what
+     *  entries are added, bucket occupancy climbs, so the table proactively
+     *  grows to keep average bucket occupancy and therefore
+     *  average lookup cost roughly constant, which is what
      *  keeps put()/get() at O(1) average case instead of
      *  degrading toward O(n) as the map fills up.
      ***********************************************************/
