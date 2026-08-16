@@ -3,7 +3,7 @@
 
 **[Visit the live site](https://jezzydaboss.github.io)**
 
-This repository hosts my CS 499 Computer Science Capstone ePortfolio — a professional self-assessment, three enhanced technical artifacts, and a code review video, demonstrating growth across software design and engineering, algorithms and data structures, and databases.
+This repository hosts my CS 499 Computer Science Capstone ePortfolio a professional self-assessment, three enhanced technical artifacts, and a code review video, demonstrating growth across software design and engineering, algorithms and data structures, and databases.
 
 ## Contents
 
@@ -34,4 +34,4 @@ This repository hosts my CS 499 Computer Science Capstone ePortfolio — a profe
 
 ---
 
-*Note: this page (README.md) renders with GitHub's default styling when viewed here on GitHub.com — GitHub strips custom CSS from README files for security. The full styled experience, including the dark background theme, is on the [live site](https://jezzydaboss.github.io).*
+*Note: The full styled experience, including the dark background theme, is on the [live site](https://jezzydaboss.github.io).*
