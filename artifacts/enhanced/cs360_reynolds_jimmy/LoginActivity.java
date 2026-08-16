@@ -25,13 +25,11 @@ import java.util.concurrent.Executors;
  *     the encrypted one (see AppDatabase.java).
  *   - The login button's logic previously silently registered a
  *     brand-new account whenever the entered username wasn't
- *     found - meaning a typo'd username on login created a new
+ *     found meaning a typo'd username on login created a new
  *     account instead of surfacing an error. That entire fallback
  *     branch is removed; a failed login now always shows a generic
  *     "Invalid username or password" message, whether the username
- *     doesn't exist or the password was wrong for it (deliberately
- *     not distinguishing the two, so this screen doesn't leak which
- *     usernames are registered to someone probing it).
+ *     doesn't exist or the password was wrong for it.
  *   - Both buttons now go through UserRepository's hash-based
  *     register()/authenticate() methods instead of passing a raw
  *     password into a SQL query.
@@ -101,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         // ENHANCEMENT: previously, this branch silently created
                         // a brand-new account and logged the user in when the
-                        // username wasn't found - a typo on login could
+                        // username wasn't found a typo on login could
                         // silently create an unintended account. It now always
                         // reports a generic authentication failure instead,
                         // covering both "no such user" and "wrong password"
