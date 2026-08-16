@@ -7,7 +7,7 @@ import java.lang.String;
  *  This class previously had a getter/setter naming mismatch
  *  that broke the build entirely: the field was set via
  *  setInServiceCountry() but could only be read back via
- *  getInServiceLocation() - a different name. Driver.java
+ *  getInServiceLocation() a different name. Driver.java
  *  called getInServiceCountry() (matching the setter, not the
  *  getter), which does not exist on the original class, so the
  *  project failed to compile. The same mismatch pattern existed
@@ -102,7 +102,7 @@ public class RescueAnimal {
     }
 
     // ENHANCEMENT: renamed from getInServiceLocation() to
-    // getInServiceCountry() so it matches setInServiceCountry() -
+    // getInServiceCountry() so it matches setInServiceCountry()
     // this mismatch is what made the original project fail to
     // compile, since Driver.java called a getter name that did
     // not exist on this class.
