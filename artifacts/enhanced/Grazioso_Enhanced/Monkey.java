@@ -2,17 +2,16 @@
  *  Monkey
  *
  *  ENHANCEMENT NOTES (Milestone Three, CS 499):
- *   - Removed "package grazioso;" - Monkey was the only class in
+ *   - Removed "package grazioso;" Monkey was the only class in
  *     this package while RescueAnimal, Dog, and Driver were all in
- *     Java's default (unnamed) package. A named package cannot
+ *     Java's default package. A named package cannot
  *     import or extend a class in the unnamed package, so the
  *     original project failed to compile with "cannot find symbol:
  *     class RescueAnimal" and a cascade of related errors. Moving
  *     Monkey into the default package alongside its dependencies
  *     resolves this.
  *   - The constructor's parameter order previously did not match
- *     how Driver.intakeNewMonkey() actually calls it (gender was
- *     passed into the tailLength slot, age into height, etc.),
+ *     how Driver.intakeNewMonkey() actually calls it,
  *     silently scrambling every monkey's data with no compiler
  *     error, since every parameter happened to be the same type
  *     (String) or coincidentally aligned (reserved). The
@@ -21,10 +20,9 @@
  *     uses: shared RescueAnimal fields first, subclass-specific
  *     fields (species, tailLength, height, bodyLength) last.
  *   - Removed the private setAcquisitionCountry(String) stub that
- *     took its parameter and did nothing with it - a dead method
+ *     took its parameter and did nothing with it, a dead method
  *     that silently shadowed the real, working setter inherited
- *     from RescueAnimal (now correctly named setAcquisitionCountry()
- *     there too - see RescueAnimal.java).
+ *     from RescueAnimal.
  *   - Removed the broken getReserved()/setReserved(boolean)
  *     overrides, which unconditionally returned false and did
  *     nothing, respectively - meaning a monkey could never
