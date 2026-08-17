@@ -13,7 +13,7 @@
 
 ## Code Review Script
 
-**[ Script](
+**[ Script](https://github.com/jezzydaboss/jezzydaboss.github.io/blob/main/Narratives/CS%20499%20Code%20Review%20Script.docx)
 ## What This Covers
 
 This video walks through all three artifacts before enhancement, covering:
